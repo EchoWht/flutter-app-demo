@@ -34,3 +34,55 @@ export PATH=/Users/wanghaotian/flutter/bin:$PATH
 在IntelliJ官网上下载并安装
 
 然后安装插件Flutter和Dart插件
+
+## 路由
+
+分两种方式
+
+- Navigator.push //通过new MaterialPageRoute直接调用类
+- Navigator.pushNamed //通过别名（缺点不能传参数）
+
+## 包管理（依赖）
+
+通过配置文件[pubspec.yaml](./pubspec.yaml)来管理第三方依赖
+
+例如使用english_words依赖
+
+```yaml
+dependencies:
+  # 省略了其他的代码···
+  english_words: ^3.1.0   # 新增了这一行
+```
+
+添加完这一句代码后，Android Studio的右上角会有Packages get 选项来安装此第三方依赖，等同于以下命令：
+
+```bash
+flutter packages get
+```
+
+在代码中使用此包
+
+```dart
+import 'package:english_words/english_words.dart';
+
+```
+
+使用本地依赖或者git上的依赖
+
+```yaml
+dependencies:
+  # 省略了其他的代码···
+  # 本地
+  pkg1: 
+    path: ../../code/pkg1
+  #git仓库
+  pkg2:
+    git:
+      url: git://github.com/flutter/packages.git
+      # git上相对的路径
+      path: packages/package1
+```
+
+## 使用资源
+
+## Wight

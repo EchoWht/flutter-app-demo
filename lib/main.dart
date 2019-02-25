@@ -34,7 +34,7 @@ class FirstPageContainer extends StatelessWidget{
           child: FlatButton(
             onPressed: (){
               Navigator.push(context, new MaterialPageRoute(builder: (context){
-                return new SecondPage();
+                return new SecondPage("Go!");
               }));
             },
             color: Colors.orange,
@@ -51,6 +51,8 @@ class FirstPageContainer extends StatelessWidget{
 ///一个新的路由（第二个页面）
 /// https://book.flutterchina.club/chapter2/flutter_router.html
 class SecondPage extends StatelessWidget{
+  SecondPage(this.msg);
+  final String msg;
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -61,7 +63,12 @@ class SecondPage extends StatelessWidget{
       body: Center(
         child: Container(
           color: Colors.black38,
-          child: Text("This is another page."),
+          child: FlatButton(
+            onPressed: (){
+              Navigator.pushNamed(context, "third_page");//通过别名来跳转到另一页面
+            }, 
+            child: Text(this.msg)
+          ),
         ),
       ),
     );
