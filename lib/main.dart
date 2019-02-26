@@ -85,10 +85,14 @@ class ThirdPage extends StatelessWidget{
       appBar: AppBar(
         title: Text("Third Page"),
       ),
-      body: Center(
-        child: Container(
-          color: Colors.black38,
-          child: Text("This is another page."),
+      body: Container(
+        child: new Column(
+          children: <Widget>[
+            new Text("Text1"),
+            new Text("Text2"),
+            new FlatButton(
+              onPressed: null, child: Text("Button"), color: Colors.orange,)
+          ],
         ),
       ),
     );
