@@ -1,6 +1,7 @@
 # Flutter App Demo
 
-一个Flutter App示例以及[学习笔记](./note.md) 
+一个Flutter App示例以及[学习笔记](docs/note.md)
+ 
 
 ## Getting Started
 

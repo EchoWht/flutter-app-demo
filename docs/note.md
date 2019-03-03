@@ -46,7 +46,7 @@ export PATH=/Users/wanghaotian/flutter/bin:$PATH
 
 ## 包管理（依赖）
 
-通过配置文件[pubspec.yaml](./pubspec.yaml)来管理第三方依赖
+通过配置文件[pubspec.yaml](../pubspec.yaml)来管理第三方依赖
 
 例如使用english_words依赖
 
