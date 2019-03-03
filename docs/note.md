@@ -87,4 +87,20 @@ dependencies:
 
 ## 使用资源
 
-## Wight
+## Widget
+
+定义：Widget是描述Element的一个 `配置数据` ，根据一个配置(Widget)可以创建多个实例(Element)。
+
+### Stateless Widget 和 Stateful Widget
+
+Stateful Widget与Stateless Widget 根据命名就可以看出区别，Stateful包含一个新的接口createState()用来创建状态。
+
+### State状态
+
+#### 状态管理
+
+- 如果状态是用户数据，如复选框的选中状态、滑块的位置，则该状态最好由父widget管理。
+- 如果状态是有关界面外观效果的，例如颜色、动画，那么状态最好由widget本身来管理。
+- 如果某一个状态是不同widget共享的则最好由它们共同的父widget管理。
+
+
