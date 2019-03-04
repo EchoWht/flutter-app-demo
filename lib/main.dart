@@ -119,7 +119,23 @@ class ThirdPage extends StatelessWidget{
             new Text("Text1"),
             new Text("Text2"),
             new FlatButton(
-              onPressed: null, child: Text("Button"), color: Colors.orange,)
+              onPressed: null, child: Text("Button"), color: Colors.orange,
+            ),
+            new RaisedButton(
+              onPressed:(){},
+              child: new Text("New"),
+              color: Colors.orange,
+              highlightColor: Colors.blue[700],
+              colorBrightness: Brightness.dark,
+            ),
+            IconButton(
+              icon: Icon(Icons.thumb_up),
+              onPressed: () => {},
+            ),
+            Image(
+                image: AssetImage("assets/images/gitcat.png"),
+                width: 100.0
+            )
           ],
         ),
       ),
@@ -276,7 +292,15 @@ class _ColorFulButtonState extends State<ColorFulButton>{
     return Container(
         child: Center(
           child: FlatButton(onPressed: _changeColor,
-            child: Text("Hello Color"),
+            child: Text("Hello Color ",
+              textAlign: TextAlign.center,
+              textScaleFactor: 2.5,
+              style: TextStyle(
+                fontSize: 18.0,
+                height: 1.2,
+                fontFamily: "Courier",
+              ),
+            ),
             color: _active ? Colors.orange : Colors.amberAccent,
             textColor:  _active ? Colors.amberAccent : Colors.orange,
           ),

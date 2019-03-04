@@ -87,6 +87,14 @@ dependencies:
 
 ## 使用资源
 
+```yaml
+
+flutter:
+  assets:
+    - assets/images/gitcat.png
+
+```
+
 ## Widget
 
 定义：Widget是描述Element的一个 `配置数据` ，根据一个配置(Widget)可以创建多个实例(Element)。
