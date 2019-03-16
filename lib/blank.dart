@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dog_model.dart';
 import 'dog_card.dart';
 import 'dog_list.dart';
+import 'new_dog_form.dart';
 
 // 教程参考：https://flutterbyexample.com/basic-dogs-app-setup
 
@@ -46,24 +47,30 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: new AppBar(
         title: new Text(widget.title),
         backgroundColor: Colors.orange,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: _showNewDogForm,
+          )
+        ],
       ),
       body: new Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Colors.green[800],
-                Colors.green[700],
-                Colors.green[600],
-                Colors.green[400],
-              ],
-              stops: [0.1, 0.5, 0.7, 0.9],
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-            )
-        ),
-        child: new Center(
-          child:  DogList(initialDoggos),
-        )
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Colors.green[800],
+                  Colors.green[700],
+                  Colors.green[600],
+                  Colors.green[400],
+                ],
+                stops: [0.1, 0.5, 0.7, 0.9],
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+              )
+          ),
+          child: new Center(
+            child: DogList(initialDoggos),
+          )
       ),
       floatingActionButton: new Builder(builder: (context) {
         return FloatingActionButton(
@@ -75,8 +82,32 @@ class _MyHomePageState extends State<MyHomePage> {
                   content: new Text("Snake Bar"),
                   backgroundColor: Colors.amberAccent,)
             );
-          },);
+          },
+        );
       }),
     );
+  }
+
+
+  ///点击跳转
+//  showNewDogPage(){
+//    Navigator.of(context).push(
+//        MaterialPageRoute(builder: (context){
+//          return AddDogFormPage();
+//        })
+//    );
+//  }
+  Future _showNewDogForm () async {
+    Dog newDog= await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (BuildContext context){
+          return AddDogFormPage();
+        }
+      )
+    );
+    if (newDog != null) {
+      // Add a newDog to our mock dog array.
+      initialDoggos.add(newDog);
+    }
   }
 }
