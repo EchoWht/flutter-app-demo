@@ -45,18 +45,35 @@ class _MyHomePageState extends State<MyHomePage> {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text(widget.title),
+        backgroundColor: Colors.orange,
       ),
       body: new Container(
-        child: DogList(initialDoggos)
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.green[800],
+                Colors.green[700],
+                Colors.green[600],
+                Colors.green[400],
+              ],
+              stops: [0.1, 0.5, 0.7, 0.9],
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+            )
+        ),
+        child: new Center(
+          child:  DogList(initialDoggos),
+        )
       ),
       floatingActionButton: new Builder(builder: (context) {
         return FloatingActionButton(
+          backgroundColor: Colors.orange,
           child: new Icon(Icons.add),
           onPressed: () {
             Scaffold.of(context).showSnackBar(
                 new SnackBar(
                   content: new Text("Snake Bar"),
-                  backgroundColor: Colors.amber,)
+                  backgroundColor: Colors.amberAccent,)
             );
           },);
       }),
