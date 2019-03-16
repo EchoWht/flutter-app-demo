@@ -14,8 +14,9 @@ class DogCard extends StatefulWidget{
 }
 
 
-class _DogCardState extends State<DogCard>{
+class _DogCardState extends State<DogCard> {
   Dog dog;
+
   _DogCardState(this.dog);
 
   //将dog的一些属性显示在界面上
@@ -29,18 +30,37 @@ class _DogCardState extends State<DogCard>{
         height: 115.0,
         child: Stack(
           children: <Widget>[
-            Positioned(child: dogCard,left: 50.0,),
-            Positioned(child: dogImage,top: 7.5,)
+            Positioned(child: dogCard, left: 50.0,),
+            Positioned(child: dogImage, top: 7.5,)
           ],
-        ),//栈，我暂时理解为ui// 列表的一种，必需包含children
+        ), //栈，我暂时理解为ui// 列表的一种，必需包含children
       ),
     );
   }
 
   String renderUrl;
+
   ///dog 图片的显示Widget
   Widget get dogImage {
-    return Container(
+    //占位符，当图片狗像不存在时显示
+    var placeholder = Container(
+      width: 100.0,
+      height: 100.0,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Colors.black54, Colors.black, Colors.blueGrey[600]],
+        ),
+      ),
+      alignment: Alignment.center,
+      child: Text(
+        'DOGGO',
+        textAlign: TextAlign.center,
+      ),
+    );
+    var dogAvatar=Container(
       width: 100.0,
       height: 100.0,
       decoration: BoxDecoration(
@@ -51,10 +71,19 @@ class _DogCardState extends State<DogCard>{
           )
       ), //装饰
     );
+    return
+      AnimatedCrossFade(
+        firstChild: placeholder,
+        secondChild: dogAvatar,
+        crossFadeState: renderUrl == null
+            ? CrossFadeState.showFirst
+            : CrossFadeState.showSecond,
+        duration: Duration(milliseconds: 1000),
+      );
   }
 
   ///显示dog其他信息的Widget
-  Widget get dogCard{
+  Widget get dogCard {
     return Container(
       width: 290.0,
       height: 115.0,
@@ -66,14 +95,20 @@ class _DogCardState extends State<DogCard>{
             left: 64.0
         ),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,//交叉轴对齐：交叉轴对齐开始，
-            mainAxisAlignment: MainAxisAlignment.spaceAround,//主轴对齐：主轴对齐,空出周围
+            crossAxisAlignment: CrossAxisAlignment.start, //交叉轴对齐：交叉轴对齐开始，
+            mainAxisAlignment: MainAxisAlignment.spaceAround, //主轴对齐：主轴对齐,空出周围
             children: <Widget>[
               Text(widget.dog.name,
-                style: Theme.of(context).textTheme.headline
+                  style: Theme
+                      .of(context)
+                      .textTheme
+                      .headline
               ),
               Text(widget.dog.location,
-                style: Theme.of(context).textTheme.subhead
+                  style: Theme
+                      .of(context)
+                      .textTheme
+                      .subhead
               ),
               Row(
                 children: <Widget>[
@@ -95,26 +130,25 @@ class _DogCardState extends State<DogCard>{
   void initState() {
     // TODO: implement initState
     super.initState();
-    renderDogPic();//调用异步获取图片的方法
+    renderDogPic(); //调用异步获取图片的方法
 
   }
 
   ///异步的去服务器获取图片
-  void renderDogPic() async{
+  void renderDogPic() async {
     await dog.getImageUrl();
     setState(() {
-      renderUrl=dog.imageUrl;
+      renderUrl = dog.imageUrl;
     });
   }
 
 
   ///点击跳转
-  showDogDetailPage(){
+  showDogDetailPage() {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (context){
-        return DogDetailPage(dog);
-      })
+        MaterialPageRoute(builder: (context) {
+          return DogDetailPage(dog);
+        })
     );
   }
-
 }
