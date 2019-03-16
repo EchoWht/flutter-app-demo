@@ -28,7 +28,7 @@ class _DogCardState extends State<DogCard>{
           Positioned(child: dogCard,left: 50.0,),
           Positioned(child: dogImage,top: 7.5,)
         ],
-      ),//栈，我暂时理解为列表的一种，必需包含children
+      ),//栈，我暂时理解为ui// 列表的一种，必需包含children
     );
   }
 

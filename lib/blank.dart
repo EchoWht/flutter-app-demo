@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dog_model.dart';
 import 'dog_card.dart';
+import 'dog_list.dart';
 
 // 教程参考：https://flutterbyexample.com/basic-dogs-app-setup
 
@@ -46,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: new Text(widget.title),
       ),
       body: new Container(
-        child: DogCard(initialDoggos[1])
+        child: DogList(initialDoggos)
       ),
       floatingActionButton: new Builder(builder: (context) {
         return FloatingActionButton(
