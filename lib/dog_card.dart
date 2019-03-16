@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dog_model.dart';
+import 'dog_detail_page.dart';
 
 class DogCard extends StatefulWidget{
   final Dog dog;
@@ -21,14 +22,18 @@ class _DogCardState extends State<DogCard>{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return new Container(
-      height: 115.0,
-      child: Stack(
-        children: <Widget>[
-          Positioned(child: dogCard,left: 50.0,),
-          Positioned(child: dogImage,top: 7.5,)
-        ],
-      ),//栈，我暂时理解为ui// 列表的一种，必需包含children
+    //InkWell是一个特殊的Material小部件，可以让它的子节点可以点击
+    return new InkWell(
+      onTap: showDogDetailPage,
+      child: Container(
+        height: 115.0,
+        child: Stack(
+          children: <Widget>[
+            Positioned(child: dogCard,left: 50.0,),
+            Positioned(child: dogImage,top: 7.5,)
+          ],
+        ),//栈，我暂时理解为ui// 列表的一种，必需包含children
+      ),
     );
   }
 
@@ -54,7 +59,7 @@ class _DogCardState extends State<DogCard>{
       width: 290.0,
       height: 115.0,
       child: Card(
-        color: Colors.orange,
+        color: Colors.amber,
         child: Padding(padding: const EdgeInsets.only(
             top: 8.0,
             bottom: 8.0,
@@ -100,6 +105,16 @@ class _DogCardState extends State<DogCard>{
     setState(() {
       renderUrl=dog.imageUrl;
     });
+  }
+
+
+  ///点击跳转
+  showDogDetailPage(){
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context){
+        return DogDetailPage(dog);
+      })
+    );
   }
 
 }
