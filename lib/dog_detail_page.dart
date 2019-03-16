@@ -25,7 +25,9 @@ class _DogDetailPageState extends State<DogDetailPage>{
         title: Text('Meet ${widget.dog.name}'),
         backgroundColor: Colors.orange,
       ),
-      body: dogProfile,
+      body: ListView(children: <Widget>[
+        dogProfile,addYourRating
+      ],),
     );
   }
 
@@ -95,9 +97,81 @@ class _DogDetailPageState extends State<DogDetailPage>{
             padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
             child: Text(widget.dog.description),
           ),//3.狗描述
-          rating//4.评分
+          rating,//4.评分
         ],
       ),
     );
   }
+
+  ///打分功能
+  double _sliderValue=10.0;
+  Widget get addYourRating{
+    return  Column(
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.symmetric(
+            vertical: 16.0,
+            horizontal: 16.0
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Flexible(
+                  child: Slider(
+                    min: 0.0,
+                    max: 15.0,
+                    value: _sliderValue,
+                    onChanged: (v) {
+                      setState(() {
+                        _sliderValue = v;
+                      });
+                    }))
+            ],
+          ),
+        ),
+        Container(
+          width: 50.0,
+          alignment: Alignment.center,
+          child: Text('${_sliderValue.toInt()}',style: Theme.of(context).textTheme.display1,),
+        ),
+        submitRatingButton
+      ],
+    );
+  }
+
+  //提交按钮
+  Widget get submitRatingButton{
+    return RaisedButton(
+      onPressed: updateRating,
+      color: Colors.deepOrange,
+      child: Text('Submit',style: new TextStyle(color: Colors.white)),
+    );
+  }
+  void updateRating(){
+    if(_sliderValue<10){
+      _ratingErrorDialog();
+    }else{
+      setState(() {
+        widget.dog.rating=_sliderValue.toInt();
+      });
+    }
+  }
+  //校验
+  Future<Null> _ratingErrorDialog() async{
+    return showDialog(context: context,builder: (BuildContext context){
+      return AlertDialog(
+        title: Text('Error!'),
+        content: Text("They're good dogs, Brant."),
+        actions: <Widget>[
+          FlatButton(
+            child: Text('Try again'),
+            onPressed:() {
+              Navigator.of(context).pop();
+            },
+          )
+        ],
+      );
+    });
+  }
+  
 }
