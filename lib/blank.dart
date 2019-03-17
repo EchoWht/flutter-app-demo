@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget{
     // TODO: implement build
     return new MaterialApp(
       title: "Blank App",
-      home:new MyHomePage(key, "Blank")
+      home:new MyHomePage(key, "Dog List")
     );
   }
 }
@@ -58,10 +58,10 @@ class _MyHomePageState extends State<MyHomePage> {
           decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Colors.green[800],
-                  Colors.green[700],
-                  Colors.green[600],
-                  Colors.green[400],
+                  Colors.yellow[400],
+                  Colors.yellow[300],
+                  Colors.yellow[200],
+                  Colors.yellow[100],
                 ],
                 stops: [0.1, 0.5, 0.7, 0.9],
                 begin: Alignment.topRight,

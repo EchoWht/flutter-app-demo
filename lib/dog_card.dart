@@ -30,7 +30,7 @@ class _DogCardState extends State<DogCard> {
         height: 115.0,
         child: Stack(
           children: <Widget>[
-            Positioned(child: dogCard, left: 50.0,),
+            Positioned(child: dogCard, left: 50.0,right: 0.0,),
             Positioned(child: dogImage, top: 7.5,)
           ],
         ), //栈，我暂时理解为ui// 列表的一种，必需包含children

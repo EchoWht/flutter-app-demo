@@ -67,6 +67,7 @@ class _DogDetailPageState extends State<DogDetailPage>{
   ///评分
   Widget get rating{
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Icon(Icons.star,size: 40.0,),
         Text('${widget.dog.rating} / 10',style: Theme.of(context).textTheme.display2)
@@ -80,10 +81,10 @@ class _DogDetailPageState extends State<DogDetailPage>{
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Colors.green[800],
-            Colors.green[700],
-            Colors.green[600],
-            Colors.green[400],
+            Colors.yellow[800],
+            Colors.yellow[700],
+            Colors.yellow[600],
+            Colors.yellow[400],
           ],)
       ),
       child: Column(
