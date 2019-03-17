@@ -60,7 +60,8 @@ class _DogCardState extends State<DogCard> {
         textAlign: TextAlign.center,
       ),
     );
-    var dogAvatar=Container(
+    var dogAvatar=Hero(tag: dog, child:
+    Container(
       width: 100.0,
       height: 100.0,
       decoration: BoxDecoration(
@@ -70,6 +71,7 @@ class _DogCardState extends State<DogCard> {
               fit: BoxFit.cover
           )
       ), //装饰
+    )
     );
     return
       AnimatedCrossFade(
