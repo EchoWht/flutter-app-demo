@@ -8,3 +8,25 @@
 
 ![image](images/PleaseConfigAndroidSDK.png)
 
+
+## 真机调试
+
+### Troubleshot故障检修
+
+打开或者新建一个普通的android项目，然后点右上角的debug按钮，会出现选择设备的列表（如果没有请修改config中的 deployment target options 中的target为“open select deployment target dialog”）
+然后点击Troubleshot
+
+![image](images/zj1.png)
+
+### 查看手机是否已经连接
+
+![image](images/zj2.png)
+
+### 查看手机是否是开发者模式且允许usb调试
+
+如果开启了会在此显示设备（没开启会有红色字样 No Android devices detected. ）
+
+![image](images/zj3.png)
+
+> 1. 手机一定要开启开发者模式，不同android版本或者手机方法不同
+> 2. 电脑和数据先相连后，一定要点允许USB调试
