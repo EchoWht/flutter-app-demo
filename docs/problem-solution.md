@@ -30,3 +30,8 @@
 
 > 1. 手机一定要开启开发者模式，不同android版本或者手机方法不同
 > 2. 电脑和数据先相连后，一定要点允许USB调试
+
+
+## 表单遮挡问题
+
+如果Container下直接是Column，Column里面是Input，如果Input过多，调出键盘时会遮挡，所以注意Column外套层ListView

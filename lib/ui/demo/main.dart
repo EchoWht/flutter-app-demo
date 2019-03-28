@@ -103,8 +103,7 @@ class HomePageState extends State<HomePage>{
           children: <Widget>[
             GridTile(
               header: GridTileBar(
-                title: Text("List"),
-                subtitle: Text("2"),
+                title: Text("基础表单"),
                 leading: Icon(Icons.star),
               ),
               child: InkWell(
@@ -116,12 +115,11 @@ class HomePageState extends State<HomePage>{
             ),
             GridTile(
               header: GridTileBar(
-                title: Text("abc"),
-                subtitle: Text("2"),
+                title: Text("表单样式1"),
                 leading: Icon(Icons.star),
               ),
               child: InkWell(
-                onTap:_toBasicFormPage ,
+                onTap:_toBasicFormPage1 ,
                 child: new Container(
                   color: lightBackgroundColor,
                 ),
@@ -129,12 +127,11 @@ class HomePageState extends State<HomePage>{
             ),
             GridTile(
               header: GridTileBar(
-                title: Text("abc"),
-                subtitle: Text("2"),
+                title: Text("表单样式2"),
                 leading: Icon(Icons.star),
               ),
               child: InkWell(
-                onTap:_toBasicFormPage ,
+                onTap:_toBasicFormPage2 ,
                 child: new Container(
                   color: lightBackgroundColor,
                 ),
@@ -150,6 +147,18 @@ class HomePageState extends State<HomePage>{
     Navigator.push(
         context, new MaterialPageRoute(builder: (context) {
       return new BasicFormPage();
+    }));
+  }
+  _toBasicFormPage1(){
+    Navigator.push(
+        context, new MaterialPageRoute(builder: (context) {
+      return new BasicFormPage1();
+    }));
+  }
+  _toBasicFormPage2(){
+    Navigator.push(
+        context, new MaterialPageRoute(builder: (context) {
+      return new BasicFormPage2();
     }));
   }
 }
