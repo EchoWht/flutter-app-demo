@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'form.dart';
+import 'list.dart';
 import 'colors.dart';
 void main()=>runApp(new MyApp());
 
@@ -97,8 +98,8 @@ class HomePageState extends State<HomePage>{
         child:GridView.count(
           crossAxisCount: 3,
           mainAxisSpacing: 10.0,
-          crossAxisSpacing: 4.0,
-          padding: const EdgeInsets.all(4.0),
+          crossAxisSpacing: 10.0,
+          padding: const EdgeInsets.all(15.0),
           //childAspectRatio: 1.3,
           children: <Widget>[
             GridTile(
@@ -136,6 +137,18 @@ class HomePageState extends State<HomePage>{
                   color: lightBackgroundColor,
                 ),
               ),
+            ),
+            GridTile(
+              header: GridTileBar(
+                title: Text("List"),
+                leading: Icon(Icons.list),
+              ),
+              child: InkWell(
+                onTap:_toBasicListPage ,
+                child: new Container(
+                  color: lightBackgroundColor,
+                ),
+              ),
             )
           ],
         )
@@ -159,6 +172,12 @@ class HomePageState extends State<HomePage>{
     Navigator.push(
         context, new MaterialPageRoute(builder: (context) {
       return new BasicFormPage2();
+    }));
+  }
+  _toBasicListPage(){
+    Navigator.push(
+        context, new MaterialPageRoute(builder: (context) {
+      return new BasicListPage();
     }));
   }
 }

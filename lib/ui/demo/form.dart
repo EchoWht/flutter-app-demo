@@ -109,7 +109,7 @@ class BasicFormPageState1 extends State<BasicFormPage1> {
                       ),
                       top: 10.5,),
                     Positioned(
-                      child: Container(
+//                      child: Container(
                         child: Align(
                           alignment: Alignment.topRight,
                           child: DropdownButton<String>(
@@ -131,7 +131,143 @@ class BasicFormPageState1 extends State<BasicFormPage1> {
                             }).toList(),
                           ),
                         ),
+//                      ),
+                    ),
+                  ]
+              ),
+            ),
+            Container(
+              height: 50.0,
+              child: Stack(
+                  children: <Widget>[
+                    Positioned(
+                      child: Container(
+                        child: Text("下拉:",style: TextStyle(fontSize: 20.0),),
                       ),
+                      top: 10.5,),
+                    Positioned(
+//                      child: Container(
+                      child: Align(
+                        alignment: Alignment.topRight,
+                        child: Container(
+                          width: 300.0,
+                          child:
+                          ButtonTheme(
+                            alignedDropdown: true,
+                            child: DropdownButton<String>(
+                              hint: Text("请选择"),
+                              disabledHint: Text("没有值"),
+                              value: dropdown1Value,
+                              onChanged: (String newValue) {
+                                setState(() {
+                                  dropdown1Value = newValue;
+                                });
+                              },
+                              items: <String>['One', 'Two', 'Three', 'Four','这是个比较长的选项']
+                                  .map<
+                                  DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
+                            ),
+                          )
+                          ,
+                        ),
+                      ),
+//                      ),
+                    ),
+                  ]
+              ),
+            ),
+            Container(
+              height: 50.0,
+              child: Stack(
+                  children: <Widget>[
+                    Positioned(
+                      child: Container(
+                        child: Text("下拉:",style: TextStyle(fontSize: 20.0),),
+                      ),
+                      top: 10.5,),
+                    Positioned(
+                        child: Align(
+                          alignment: Alignment.topRight,
+                          child: Container(
+                            width: 300.0,
+                            child: DropdownButtonHideUnderline(
+                              child: ButtonTheme(
+                                alignedDropdown: true,
+                                child: DropdownButton<String>(
+                                  hint: Text("请选择"),
+                                  disabledHint: Text("没有值"),
+                                  value: dropdown1Value,
+                                  onChanged: (String newValue) {
+                                    setState(() {
+                                      dropdown1Value = newValue;
+                                    });
+                                  },
+                                  items: <String>['One', 'Two', 'Three', 'Four','这是个比较长的选项']
+                                      .map<
+                                      DropdownMenuItem<String>>((String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList(),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+
+                    ),
+                  ]
+              ),
+            ),
+            Container(
+              height: 50.0,
+              child: Stack(
+                  children: <Widget>[
+                    Positioned(
+                      child: Container(
+                        child: Text("下拉:",style: TextStyle(fontSize: 20.0),),
+                      ),
+                      top: 10.5,),
+                    Positioned(
+                      child: Align(
+                        alignment: Alignment.topRight,
+                        child: Container(
+                          width: 283.0,
+                          decoration: BoxDecoration(
+                            border: Border(bottom: BorderSide(width: 1.0, color: Color(0xFFFF7F7F7F)) )
+                          ),
+                          child: DropdownButtonHideUnderline(
+                            child: ButtonTheme(
+                              alignedDropdown: true,
+                              child: DropdownButton<String>(
+                                hint: Text("请选择"),
+                                disabledHint: Text("没有值"),
+                                value: dropdown1Value,
+                                onChanged: (String newValue) {
+                                  setState(() {
+                                    dropdown1Value = newValue;
+                                  });
+                                },
+                                items: <String>['One', 'Two', 'Three', 'Four','这是个比较长的选项']
+                                    .map<
+                                    DropdownMenuItem<String>>((String value) {
+                                  return DropdownMenuItem<String>(
+                                    value: value,
+                                    child: Text(value),
+                                  );
+                                }).toList(),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+
                     ),
                   ]
               ),
