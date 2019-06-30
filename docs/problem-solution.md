@@ -6,6 +6,8 @@
 
 解决方案：我尝试者启动了一遍之前的Android原生项目，启动成功后，我又启动了下flutter项目，发现好了···
 
+(有时这样也并不好用，具体方案待查 [参考链接](https://juejin.im/post/5c0f2f71f265da616917147c))
+
 ![image](images/PleaseConfigAndroidSDK.png)
 
 
